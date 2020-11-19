@@ -313,8 +313,8 @@ export const chilliProduct: Product = {
 }
 
 export const chilli3dConfig: Gltf3dModelProps = {
-  path: '/models/chilli.gltf',
-  scale: 0.09,
+  path: '/models/workspace.gltf',
+  scale: 1,
   hiddenObjects: [
     tipFat,
     tipShort,

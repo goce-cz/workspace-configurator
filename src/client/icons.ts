@@ -1,2 +1,10 @@
 // Sidebar icons
 export { ReactComponent as PackagesIcon } from '../assets/icons/icon-packages.svg'
+export { ReactComponent as ChairIcon } from '../assets/icons/chair.svg'
+export { ReactComponent as LaptopIcon } from '../assets/icons/laptop.svg'
+export { ReactComponent as MonitorIcon } from '../assets/icons/monitor.svg'
+export { ReactComponent as PlantPotIcon } from '../assets/icons/plant-pot.svg'
+export { ReactComponent as ResizeIcon } from '../assets/icons/resize.svg'
+export { ReactComponent as TableIcon } from '../assets/icons/simple-table.svg'
+export { ReactComponent as UserIcon } from '../assets/icons/user.svg'
+export { ReactComponent as VideoCameraIcon } from '../assets/icons/video-camera.svg'
