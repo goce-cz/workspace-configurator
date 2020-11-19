@@ -5,6 +5,24 @@ export const chilliProductRules: ProductRules = {
     SPICY: {
       basePrice: 0,
       defaultOptions: ['RED', 'LAPTOP', 'DISPLAY_SIZE'],
+      replacementGroups: {
+        TABLE_COLOR: [
+          'BEIGE',
+          'RED'
+        ],
+        COMPUTER: [
+          'DESKTOP',
+          'LAPTOP'
+        ]
+      },
+      requirements: {
+        'DOCK': ['MOUSE', 'LAPTOP', 'EXTERNAL_MONITOR'],
+        'DESKTOP': ['MOUSE', 'EXTERNAL_MONITOR'],
+        'DUAL_MONITOR': ['EXTERNAL_MONITOR', 'LARGE']
+      },
+      incompatibilities: {
+        'DOCK': ['DESKTOP']
+      },
       priceList: {
         RED: 0,
         BEIGE: 100,
