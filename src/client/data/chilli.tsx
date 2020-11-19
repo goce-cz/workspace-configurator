@@ -4,7 +4,8 @@ import {
   Gltf3dModelProps,
   ImageOptionIcon,
   objectVisibilityEffect,
-  objectTransformationEffect
+  objectTransformationEffect,
+  materialParametersEffect
 } from '@salsita/configurator-sdk/client'
 import { ColorOptionIcon } from '@salsita/configurator-sdk/client/components'
 import {
@@ -69,7 +70,15 @@ export const chilliProduct: Product = {
       id: 'BEIGE',
       shortName: 'Beige',
       longName: 'Beige tabletop',
-      icon: <ColorOptionIcon color="#b39359"/>
+      icon: <ColorOptionIcon color="#b39359"/>,
+      viewEffects: [
+        materialParametersEffect({
+          affectedMaterials: ['table_top'],
+          adjustedProperties: {
+            color: '#b39359'
+          }
+        })
+      ]
     },
     {
       id: 'RED',
