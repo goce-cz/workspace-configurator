@@ -2,7 +2,8 @@ import React from 'react'
 import {
   Product,
   Gltf3dModelProps,
-  ImageOptionIcon
+  ImageOptionIcon,
+  objectVisibilityEffect
 } from '@salsita/configurator-sdk/client'
 import { ColorOptionIcon } from '@salsita/configurator-sdk/client/components'
 import {
@@ -77,31 +78,57 @@ export const chilliProduct: Product = {
       id: 'UPHOLSTERED_CHAIR',
       shortName: 'Upholstered',
       longName: 'Upholstered chair',
-      icon: <ImageOptionIcon src="/images/chair.png"/>
+      icon: <ImageOptionIcon src="/images/chair.png"/>,
+      viewEffects: [
+        objectVisibilityEffect({
+          objectsToShow: ['office-chair'],
+          objectsToHide: ['chair']
+        })
+      ]
     },
     {
       id: 'LAPTOP',
       shortName: 'Laptop',
       longName: 'Laptop PC',
-      icon: <ImageOptionIcon src="/images/laptop.png"/>
+      icon: <ImageOptionIcon src="/images/laptop.png"/>,
+      viewEffects: [
+        objectVisibilityEffect({
+          objectsToShow: ['laptop']
+        })
+      ]
     },
     {
       id: 'DESKTOP',
       shortName: 'Desktop',
       longName: 'Desktop PC',
-      icon: <ImageOptionIcon src="/images/desktop.png"/>
+      icon: <ImageOptionIcon src="/images/desktop.png"/>,
+      viewEffects: [
+        objectVisibilityEffect({
+          objectsToShow: ['desktop', 'keyboard']
+        })
+      ]
     },
     {
       id: 'EXTERNAL_MONITOR',
       shortName: 'External',
       longName: 'External monitor',
-      icon: <ImageOptionIcon src="/images/monitor.png"/>
+      icon: <ImageOptionIcon src="/images/monitor.png"/>,
+      viewEffects: [
+        objectVisibilityEffect({
+          objectsToShow: ['monitor1']
+        })
+      ]
     },
     {
       id: 'DUAL_MONITOR',
       shortName: 'Dual',
       longName: 'Dual monitor',
-      icon: <ImageOptionIcon src="/images/dual-monitor.png"/>
+      icon: <ImageOptionIcon src="/images/dual-monitor.png"/>,
+      viewEffects: [
+        objectVisibilityEffect({
+          objectsToShow: ['monitor2']
+        })
+      ]
     },
     {
       id: 'DISPLAY_SIZE',
@@ -112,19 +139,34 @@ export const chilliProduct: Product = {
       id: 'DOCK',
       shortName: 'Dock',
       longName: 'Docked laptop',
-      icon: <ImageOptionIcon src="/images/dock.png"/>
+      icon: <ImageOptionIcon src="/images/dock.png"/>,
+      viewEffects: [
+        objectVisibilityEffect({
+          objectsToShow: ['keyboard']
+        })
+      ]
     },
     {
       id: 'MOUSE',
       shortName: 'Mouse',
       longName: 'Wireless mouse',
-      icon: <ImageOptionIcon src="/images/mouse.png"/>
+      icon: <ImageOptionIcon src="/images/mouse.png"/>,
+      viewEffects: [
+        objectVisibilityEffect({
+          objectsToShow: ['mouse']
+        })
+      ]
     },
     {
       id: 'PLANT',
       shortName: 'Plant pot',
       longName: 'Decorative plan pot',
-      icon: <ImageOptionIcon src="/images/plant.png"/>
+      icon: <ImageOptionIcon src="/images/plant.png"/>,
+      viewEffects: [
+        objectVisibilityEffect({
+          objectsToShow: ['plant']
+        })
+      ]
     }
   ],
   models: [
@@ -279,5 +321,13 @@ export const chilli3dConfig: Gltf3dModelProps = {
   path: '/models/workspace.gltf',
   scale: 1,
   hiddenObjects: [
+    'plant',
+    'laptop',
+    'desktop',
+    'monitor1',
+    'monitor2',
+    'keyboard',
+    'mouse',
+    'office-chair'
   ]
 }
