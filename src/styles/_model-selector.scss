@@ -1,0 +1,145 @@
+$colorText: #141326;
+$colorTextAlt: #626176;
+$colorAccent:  #5667C3;
+$colorBorder: #F6F5FA;
+
+@mixin desktop {
+  @media screen and (min-width: 1180px) {
+    @content;
+  }
+}
+
+.ModelSelector {
+  height: 100%;
+  background: #FFF;
+  overflow-y: auto;
+
+  @include desktop {
+    display: flex;
+    align-items: center;
+  }
+
+  > div {
+    max-width: 800px;
+    min-width: 320px;
+    margin: 48px auto;
+    padding: 0 24px;
+
+    @include desktop {
+      max-width: 1280px;
+    }
+  }
+
+  h1 {
+    margin: 0 0 16px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  nav {
+    margin: 24px 0;
+
+    @include desktop {
+      display: flex;
+      flex-flow: row nowrap;
+      margin-left: -12px;
+      margin-right: -12px;
+
+      .ModelTile {
+        flex: 1 1 0;
+        margin: 0 12px;
+      }
+    }
+  }
+}
+
+.ModelTile {
+  margin: 24px 0;
+  padding: 24px;
+  border: 1px solid #EEEFF9;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  color: $colorText;
+  background: #FFF;
+  box-shadow: 2px 4px 15px 0 rgba(37, 35, 56, 0.1),
+              0 4px 0 0 $colorAccent inset;
+
+  h3 {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .description {
+    margin: 24px 0;
+    color: $colorTextAlt;
+  }
+
+  ul {
+    margin: 24px 0 24px 21px;
+    padding-left: 8px;
+    list-style: none;
+
+    li {
+      margin: 8px 0;
+      text-indent: -21px;
+
+      &:before {
+        content: '◆';
+        margin-right: 1ex;
+        color: $colorAccent;
+      }
+    }
+  }
+
+  footer {
+    display: flex;
+    align-items: flex-end;
+    padding-top: 16px;
+    border-top: 1px solid $colorBorder;
+
+    .priceContainer {
+      margin-right: auto;
+      color: $colorTextAlt;
+      font-size: 14px;
+      font-weight: 600;
+
+      .price {
+        margin-top: 8px;
+        color: $colorText;
+        font-size: 18px;
+        font-weight: 700;
+      }
+    }
+
+    a {
+      box-sizing: border-box;
+      display: inline-block;
+      padding: 11px 36px;
+      border-radius: 4px;
+      color: $colorText;
+      background-color: #F7F7FA;
+      font-size: 14px;
+      line-height: 1;
+      text-decoration: none;
+      transition: all 0.12s linear;
+
+      &:hover {
+        color: white;
+        background: $colorAccent;
+      }
+    }
+  }
+}
+
+@include desktop {
+  .ModelTile {
+    display: flex;
+    flex-flow: column nowrap;
+
+    ul {
+      flex: 1 1 auto;
+      margin-top: 0;
+    }
+  }
+}
