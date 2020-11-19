@@ -174,7 +174,7 @@ export const chilliProduct: Product = {
         }),
         objectTransformationEffect({
           affectedObjects: ['laptop'],
-          translate: [-0.5, undefined, -0.3]
+          translate: (_, selectedOptions) => [selectedOptions.has('DUAL_MONITOR') ? -0.8 : -0.5, undefined, -0.3]
         })
       ]
     },
