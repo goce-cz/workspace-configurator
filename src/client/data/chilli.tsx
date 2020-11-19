@@ -17,6 +17,7 @@ import {
   UserIcon,
   VideoCameraIcon
 } from '../icons'
+import { DisplaySizeSlider } from '../components/DisplaySizeSlider'
 
 const numberFormat = Intl.NumberFormat()
 
@@ -161,7 +162,8 @@ export const chilliProduct: Product = {
     {
       id: 'DISPLAY_SIZE',
       shortName: 'Size',
-      longName: 'Display size'
+      longName: 'Display size',
+      component: DisplaySizeSlider
     },
     {
       id: 'DOCK',

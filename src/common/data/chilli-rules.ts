@@ -36,6 +36,11 @@ export const chilliProductRules: ProductRules = {
         DUAL_MONITOR: 3200,
         DISPLAY_SIZE: 0,
         PLANT: 350
+      },
+      defaultValues: {
+        DISPLAY_SIZE: {
+          diagonal: 24
+        }
       }
     }
   }
