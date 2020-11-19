@@ -3,7 +3,8 @@ import {
   Product,
   Gltf3dModelProps,
   ImageOptionIcon,
-  objectVisibilityEffect
+  objectVisibilityEffect,
+  objectTransformationEffect
 } from '@salsita/configurator-sdk/client'
 import { ColorOptionIcon } from '@salsita/configurator-sdk/client/components'
 import {
@@ -79,7 +80,18 @@ export const chilliProduct: Product = {
       id: 'LARGE',
       shortName: 'Large',
       longName: 'Larger table',
-      icon: <ResizeIcon/>
+      icon: <ResizeIcon/>,
+      viewEffects: [
+        objectTransformationEffect({
+          affectedObjects: ['tabletop'],
+          translateRelative: [-0.25, undefined, undefined],
+          scale: [undefined, 1.5, undefined]
+        }),
+        objectTransformationEffect({
+          affectedObjects: ['plant'],
+          translate: [0.3, undefined, undefined]
+        })
+      ]
     },
     {
       id: 'UPHOLSTERED_CHAIR',
@@ -135,6 +147,14 @@ export const chilliProduct: Product = {
       viewEffects: [
         objectVisibilityEffect({
           objectsToShow: ['monitor2']
+        }),
+        objectTransformationEffect({
+          affectedObjects: ['monitor1'],
+          translate: [-0.3, undefined, undefined]
+        }),
+        objectTransformationEffect({
+          affectedObjects: ['monitor2'],
+          translate: [0.3, undefined, undefined]
         })
       ]
     },
@@ -151,6 +171,10 @@ export const chilliProduct: Product = {
       viewEffects: [
         objectVisibilityEffect({
           objectsToShow: ['keyboard']
+        }),
+        objectTransformationEffect({
+          affectedObjects: ['laptop'],
+          translate: [-0.5, undefined, -0.3]
         })
       ]
     },
