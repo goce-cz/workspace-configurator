@@ -39,6 +39,13 @@ export const chilliProduct: Product = {
       fieldOfView: 90,
       minDistance: 0.01,
       maxDistance: 0.01
+    },
+    {
+      id: 'DESKTOP_CAMERA',
+      target: [-0.8, 0.2, 0.2],
+      position: [-1.3, 0.9, 1.2],
+      minDistance: 0.2,
+      maxDistance: 2
     }
   ],
   cameraPresets: [
@@ -106,7 +113,8 @@ export const chilliProduct: Product = {
         objectVisibilityEffect({
           objectsToShow: ['desktop', 'keyboard']
         })
-      ]
+      ],
+      cameraId: 'DESKTOP_CAMERA'
     },
     {
       id: 'EXTERNAL_MONITOR',
