@@ -1,313 +1,276 @@
 import React from 'react'
 import {
   Product,
-  materialParametersEffect,
-  objectVisibilityEffect,
-  objectTransformationEffect,
-  Gltf3dModelProps
+  Gltf3dModelProps,
+  ImageOptionIcon
 } from '@salsita/configurator-sdk/client'
 import { ColorOptionIcon } from '@salsita/configurator-sdk/client/components'
-import { Vector2 } from 'three'
-
-import { ExtraDriedSlider } from '../components/ExtraDriedSlider'
+import {
+  ChairIcon,
+  LaptopIcon,
+  MonitorIcon,
+  PlantPotIcon,
+  ResizeIcon,
+  TableIcon,
+  UserIcon,
+  VideoCameraIcon
+} from '../icons'
 
 const numberFormat = Intl.NumberFormat()
 
-const bellMaterial = 'bell_Mat'
-const tipMaterial = 'tip_Mat'
-
-const tipShort = 'tip_short'
-const tipFat = 'tip_fat'
-const tipStandard = 'tip_standard'
-
 export const chilliProduct: Product = {
-  id: 'PEPPER',
-  longName: 'Pepper',
-  defaultMasterSectionIds: ['GROWTH_SECTION'],
-  formatPrice: price => `${numberFormat.format(price)} €`,
+  id: 'WORKPLACE',
+  longName: 'Workplace',
+  defaultMasterSectionIds: ['OVERALL_SECTION'],
+  formatPrice: price => `${numberFormat.format(price)} CZK`,
   cameras: [
     {
-      id: 'FRONT_CAMERA',
-      target: [
-        0,
-        1,
-        0
-      ],
-      position: [
-        -0.342,
-        1.96,
-        -1.774
-      ],
-      minDistance: 1.221013291361645,
-      maxDistance: 3.7745520262783803
+      id: 'OVERVIEW_CAMERA',
+      target: [0, 1, 0],
+      position: [-1.157, 1.715, 1.528],
+      minDistance: 0.5,
+      maxDistance: 4
     },
     {
-      id: 'REAR_CAMERA',
-      target: [
-        0,
-        1,
-        0
-      ],
-      position: [
-        -1.157,
-        1.715,
-        1.528
-      ],
-      minDistance: 1.221013291361645,
-      maxDistance: 3.7745520262783803
-    },
-    {
-      id: 'TIP_CAMERA',
-      target: [
-        -0.013273812273939792,
-        1.54236004017079,
-        0.014117445920453374
-      ],
-      position: [
-        -0.385,
-        1.884,
-        -0.674
-      ],
-      minDistance: 0.438084243937975,
-      maxDistance: 1.0470876224212817
-    },
-    {
-      id: 'CLOSEUP_CAMERA',
-      target: [
-        0.04611159373160548,
-        1.213190870479026,
-        0.15393241783168096
-      ],
-      position: [
-        -0.174,
-        1.716,
-        -0.82
-      ],
-      minDistance: 0.7045252660732438,
-      maxDistance: 1.9653426139068548
+      id: 'POV_CAMERA',
+      target: [0, 1.130, 0.620],
+      position: [0, 1.130, 0.630],
+      fieldOfView: 90,
+      minDistance: 0.01,
+      maxDistance: 0.01
     }
   ],
   cameraPresets: [
     {
-      id: 'FRONT_CAMERA_PRESET',
-      cameraId: 'FRONT_CAMERA',
-      tooltip: 'Front view'
+      id: 'OVERVIEW_CAMERA_PRESET',
+      cameraId: 'OVERVIEW_CAMERA',
+      tooltip: 'Front view',
+      icon: <VideoCameraIcon/>
     },
     {
-      id: 'REAR_CAMERA_PRESET',
-      cameraId: 'REAR_CAMERA',
-      tooltip: 'Rear view'
+      id: 'POV_CAMERA_PRESET',
+      cameraId: 'POV_CAMERA',
+      tooltip: 'Point of view',
+      icon: <UserIcon/>
     }
   ],
   options: [
     {
-      id: 'CAYENNE_TYPE',
-      shortName: 'Cayenne',
-      longName: 'Cayenne Red',
-      description: <p>Cayenne peppers are a group of tapering, 10 to 25 cm long, generally skinny, mostly red-colored peppers, often with a curved tip and somewhat rippled skin, which hang from the bush as opposed to growing upright. Most varieties are generally rated at 30,000 to 50,000 Scoville units.</p>,
-      icon: <ColorOptionIcon color="#b40000"/>,
-      viewEffects: [
-        materialParametersEffect({
-          affectedMaterials: [bellMaterial],
-          adjustedProperties: {
-            color: '#b40000'
-          }
-        })
-      ]
+      id: 'BEIGE',
+      shortName: 'Beige',
+      longName: 'Beige tabletop',
+      icon: <ColorOptionIcon color="#b39359"/>
     },
     {
-      id: 'HABANERO_TYPE',
-      shortName: 'Habanero',
-      longName: 'Orange Habanero',
-      description: <p>Habanero chilis are very hot, rated 100,000–350,000 on the Scoville scale. The habanero's heat, flavor and floral aroma make it a popular ingredient in hot sauces and other spicy foods.</p>,
-      icon: <ColorOptionIcon color="#ff7700"/>,
-      viewEffects: [
-        materialParametersEffect({
-          affectedMaterials: [bellMaterial],
-          adjustedProperties: {
-            color: '#ff7700'
-          }
-        })
-      ]
+      id: 'RED',
+      shortName: 'Red',
+      longName: 'Red tabletop',
+      icon: <ColorOptionIcon color="#ff0a0a"/>
     },
     {
-      id: 'POBLANO_TYPE',
-      shortName: 'Poblano',
-      longName: 'Green Poblano',
-      description: <p>While poblanos tend to have a mild flavor, occasionally and unpredictably they can have significant heat. Different peppers from the same plant have been reported to vary substantially in heat intensity. The ripened red poblano is significantly hotter and more flavorful than the less ripe, green poblano.</p>,
-      icon: <ColorOptionIcon color="#458c00"/>,
-      viewEffects: [
-        materialParametersEffect({
-          affectedMaterials: [bellMaterial],
-          adjustedProperties: {
-            color: '#458c00'
-          }
-        }),
-        objectTransformationEffect({
-          affectedObjects: ['bell'],
-          scale: [1.5, 1.3, 0.6],
-          translateRelative: [undefined, 0.4, undefined]
-        })
-      ]
+      id: 'LARGE',
+      shortName: 'Large',
+      longName: 'Larger table',
+      icon: <ResizeIcon/>
     },
     {
-      id: 'TIP_STANDARD',
-      shortName: 'Standard',
-      longName: 'Standard tip',
-      viewEffects: [
-        objectVisibilityEffect({
-          objectsToShow: [tipStandard]
-        })
-      ]
+      id: 'UPHOLSTERED_CHAIR',
+      shortName: 'Upholstered',
+      longName: 'Upholstered chair',
+      icon: <ImageOptionIcon src="/images/chair.png"/>
     },
     {
-      id: 'TIP_SHORT',
-      shortName: 'Short',
-      longName: 'Short tip',
-      viewEffects: [
-        objectVisibilityEffect({
-          objectsToShow: [tipShort]
-        })
-      ]
+      id: 'LAPTOP',
+      shortName: 'Laptop',
+      longName: 'Laptop PC',
+      icon: <ImageOptionIcon src="/images/laptop.png"/>
     },
     {
-      id: 'TIP_FAT',
-      shortName: 'Thick',
-      longName: 'Thick tip',
-      viewEffects: [
-        objectVisibilityEffect({
-          objectsToShow: [tipFat]
-        })
-      ]
+      id: 'DESKTOP',
+      shortName: 'Desktop',
+      longName: 'Desktop PC',
+      icon: <ImageOptionIcon src="/images/desktop.png"/>
     },
     {
-      id: 'EXTRA_DRIED',
-      shortName: 'Extra dried',
-      longName: 'Heavily dried by the sun',
-      viewEffects: [
-        materialParametersEffect<{ months: number }>({
-          affectedMaterials: [bellMaterial],
-          adjustedProperties: {
-            normalScale: ({ values: { months } }) => new Vector2(months / 2 + 1, -months / 2 - 1)
-          }
-        }),
-        materialParametersEffect<{ months: number }>({
-          affectedMaterials: [tipMaterial],
-          adjustedProperties: {
-            normalScale: ({ values: { months } }) => new Vector2(months * 5 + 1, -months * 5 - 1)
-          }
-        }),
-        objectTransformationEffect<{ months: number }>({
-          affectedObjects: [tipStandard, tipFat, tipShort],
-          scale: ({ values: { months } }) => [1 - (months / 45), 1 - (months / 45), undefined]
-        })
-      ],
-      component: ExtraDriedSlider
+      id: 'EXTERNAL_MONITOR',
+      shortName: 'External',
+      longName: 'External monitor',
+      icon: <ImageOptionIcon src="/images/monitor.png"/>
     },
     {
-      id: 'FRESH',
-      longName: 'Super fresh',
-      viewEffects: [
-        materialParametersEffect({
-          affectedMaterials: [bellMaterial],
-          adjustedProperties: {
-            normalScale: new Vector2(0.5, -0.5)
-          }
-        }),
-        materialParametersEffect({
-          affectedMaterials: [tipMaterial],
-          adjustedProperties: {
-            normalScale: new Vector2(0.5, -0.5)
-          }
-        })
-      ]
+      id: 'DUAL_MONITOR',
+      shortName: 'Dual',
+      longName: 'Dual monitor',
+      icon: <ImageOptionIcon src="/images/dual-monitor.png"/>
+    },
+    {
+      id: 'DISPLAY_SIZE',
+      shortName: 'Size',
+      longName: 'Display size'
+    },
+    {
+      id: 'DOCK',
+      shortName: 'Dock',
+      longName: 'Docked laptop',
+      icon: <ImageOptionIcon src="/images/dock.png"/>
+    },
+    {
+      id: 'MOUSE',
+      shortName: 'Mouse',
+      longName: 'Wireless mouse',
+      icon: <ImageOptionIcon src="/images/mouse.png"/>
+    },
+    {
+      id: 'PLANT',
+      shortName: 'Plant pot',
+      longName: 'Decorative plan pot',
+      icon: <ImageOptionIcon src="/images/plant.png"/>
     }
   ],
   models: [
     {
-      id: 'CHILLI',
-      longName: 'Chilli ',
+      id: 'SPICY',
+      longName: 'Spicy Salsita workspace',
+      badgeName: 'spicy',
       description: <p>Hot as hell.</p>
     }
   ],
   optionGroups: [
     {
-      id: 'TYPE',
-      longName: 'Chilli pepper type and color',
+      id: 'COMPUTER_GROUP',
+      longName: 'Computer',
       optionIds: [
-        'CAYENNE_TYPE',
-        'HABANERO_TYPE',
-        'POBLANO_TYPE'
+        'DESKTOP',
+        'LAPTOP'
       ]
     },
     {
-      id: 'TIPS',
-      longName: 'Length and shape of the tip',
+      id: 'MONITOR_SETUP_GROUP',
+      longName: 'Monitor setup',
       optionIds: [
-        'TIP_STANDARD',
-        'TIP_SHORT',
-        'TIP_FAT'
+        'EXTERNAL_MONITOR',
+        'DUAL_MONITOR'
       ]
     },
     {
-      id: 'DRYING',
-      longName: 'Drying',
+      id: 'DISPLAY_SIZE_GROUP',
+      longName: 'Display size',
       optionIds: [
-        'EXTRA_DRIED',
-        'FRESH'
+        'DISPLAY_SIZE'
+      ]
+    },
+    {
+      id: 'ACCESSORY_GROUP',
+      longName: 'Accessories',
+      optionIds: [
+        'DOCK',
+        'MOUSE'
+      ]
+    },
+    {
+      id: 'PLANT_GROUP',
+      longName: 'Plant',
+      optionIds: [
+        'PLANT'
+      ]
+    },
+    {
+      id: 'TABLE_COLOR_GROUP',
+      longName: 'Color',
+      optionIds: [
+        'RED',
+        'BEIGE'
+      ]
+    },
+    {
+      id: 'TABLE_SIZE_GROUP',
+      longName: 'Size',
+      optionIds: [
+        'LARGE'
+      ]
+    },
+    {
+      id: 'CHAIR_GROUP',
+      longName: 'Chair',
+      optionIds: [
+        'UPHOLSTERED_CHAIR'
       ]
     }
   ],
   subSections: [
     {
-      id: 'TYPE_SECTION',
-      longName: 'Type',
+      id: 'TABLE_SUB_SECTION',
+      longName: 'Table',
+      icon: <TableIcon/>,
       optionGroupIds: [
-        'TYPE'
+        'TABLE_COLOR_GROUP',
+        'TABLE_SIZE_GROUP'
       ]
     },
     {
-      id: 'TIP_SECTION',
-      longName: 'Tips',
+      id: 'CHAIR_SUB_SECTION',
+      longName: 'Chair',
+      icon: <ChairIcon/>,
       optionGroupIds: [
-        'TIPS'
-      ],
-      cameraId: 'TIP_CAMERA',
-      touchPoint: [-0.2, 1.75, 0]
+        'CHAIR_GROUP'
+      ]
     },
     {
-      id: 'DRYING_SECTION',
-      longName: 'Drying',
+      id: 'COMPUTER_SUB_SECTION',
+      longName: 'Computer',
+      icon: <LaptopIcon/>,
       optionGroupIds: [
-        'DRYING'
-      ],
-      cameraId: 'CLOSEUP_CAMERA'
+        'COMPUTER_GROUP',
+        'ACCESSORY_GROUP'
+      ]
+    },
+    {
+      id: 'MONITOR_SUB_SECTION',
+      longName: 'Monitor',
+      icon: <MonitorIcon/>,
+      optionGroupIds: [
+        'MONITOR_SETUP_GROUP',
+        'DISPLAY_SIZE_GROUP'
+      ]
+    },
+    {
+      id: 'DECORATION_SUB_SECTION',
+      longName: 'Decoration',
+      icon: <PlantPotIcon/>,
+      optionGroupIds: [
+        'PLANT_GROUP'
+      ]
     }
   ],
   masterSections: [
     {
-      id: 'GROWTH_SECTION',
-      longName: 'Growth',
-      subTitle: 'Type and tip',
+      id: 'OVERALL_SECTION',
+      longName: 'Overall setup',
+      subTitle: 'Table & chair',
       subSectionIds: [
-        'TYPE_SECTION',
-        'TIP_SECTION'
+        'TABLE_SUB_SECTION',
+        'CHAIR_SUB_SECTION'
       ],
-      cameraId: 'FRONT_CAMERA',
+      cameraId: 'OVERVIEW_CAMERA',
       cameraPresetIds: [
-        'FRONT_CAMERA_PRESET',
-        'REAR_CAMERA_PRESET'
+        'OVERVIEW_CAMERA_PRESET',
+        'POV_CAMERA_PRESET'
       ]
     },
     {
-      id: 'PREPARATION_SECTION',
-      longName: 'Preparation',
-      subTitle: 'After reaping, before shipping',
+      id: 'APPLIANCE_SECTION',
+      longName: 'Appliance',
+      subTitle: 'Computer and accessories',
       subSectionIds: [
-        'DRYING_SECTION'
+        'COMPUTER_SUB_SECTION',
+        'MONITOR_SUB_SECTION',
+        'DECORATION_SUB_SECTION'
       ],
-      cameraId: 'FRONT_CAMERA',
-      cameraPresetIds: []
+      cameraId: 'POV_CAMERA',
+      cameraPresetIds: [
+        'OVERVIEW_CAMERA_PRESET',
+        'POV_CAMERA_PRESET'
+      ]
     }
   ]
 }
@@ -316,8 +279,5 @@ export const chilli3dConfig: Gltf3dModelProps = {
   path: '/models/workspace.gltf',
   scale: 1,
   hiddenObjects: [
-    tipFat,
-    tipShort,
-    tipStandard
   ]
 }

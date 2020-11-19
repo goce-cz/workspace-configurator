@@ -39,7 +39,7 @@ export const Configurator = memo(function CarConfigurator (
     >
       <Layout
         logo={logo}
-        header={<h1>Configure your chilli pepper</h1>}
+        header={<h1>Configure your workplace in Salsita</h1>}
         navigation={<MasterSectionNavbar/>}
         sidebar={<SubSectionSidebar/>}
         summary={<ConfigurationSummary/>}
