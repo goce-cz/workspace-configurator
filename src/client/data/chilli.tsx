@@ -311,7 +311,8 @@ export const chilliProduct: Product = {
       optionGroupIds: [
         'TABLE_COLOR_GROUP',
         'TABLE_SIZE_GROUP'
-      ]
+      ],
+      touchPoint: [-0.6, 0.8, 0.25]
     },
     {
       id: 'CHAIR_SUB_SECTION',
@@ -319,7 +320,8 @@ export const chilliProduct: Product = {
       icon: <ChairIcon/>,
       optionGroupIds: [
         'CHAIR_GROUP'
-      ]
+      ],
+      touchPoint: [0, 0.85, 0.70]
     },
     {
       id: 'COMPUTER_SUB_SECTION',
@@ -328,7 +330,8 @@ export const chilliProduct: Product = {
       optionGroupIds: [
         'COMPUTER_GROUP',
         'ACCESSORY_GROUP'
-      ]
+      ],
+      touchPoint: [0, 0.8, 0.25]
     },
     {
       id: 'MONITOR_SUB_SECTION',
@@ -337,7 +340,8 @@ export const chilliProduct: Product = {
       optionGroupIds: [
         'MONITOR_SETUP_GROUP',
         'DISPLAY_SIZE_GROUP'
-      ]
+      ],
+      touchPoint: [0, 1, -0.1]
     },
     {
       id: 'DECORATION_SUB_SECTION',
@@ -345,7 +349,8 @@ export const chilliProduct: Product = {
       icon: <PlantPotIcon/>,
       optionGroupIds: [
         'PLANT_GROUP'
-      ]
+      ],
+      touchPoint: [0.6, 0.9, -0.2]
     }
   ],
   masterSections: [
