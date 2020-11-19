@@ -151,11 +151,19 @@ export const chilliProduct: Product = {
         }),
         objectTransformationEffect({
           affectedObjects: ['monitor1'],
-          translate: [-0.3, undefined, undefined]
+          translate: (_, selectedOptions) => {
+            const values = selectedOptions.get('DISPLAY_SIZE')?.values as { diagonal: number } | undefined
+            const { diagonal = 24 } = values ?? {}
+            return [-0.3 * diagonal / 24, undefined, undefined]
+          }
         }),
         objectTransformationEffect({
           affectedObjects: ['monitor2'],
-          translate: [0.3, undefined, undefined]
+          translate: (_, selectedOptions) => {
+            const values = selectedOptions.get('DISPLAY_SIZE')?.values as { diagonal: number } | undefined
+            const { diagonal = 24 } = values ?? {}
+            return [0.3 * diagonal / 24, undefined, undefined]
+          }
         })
       ]
     },
@@ -163,7 +171,20 @@ export const chilliProduct: Product = {
       id: 'DISPLAY_SIZE',
       shortName: 'Size',
       longName: 'Display size',
-      component: DisplaySizeSlider
+      component: DisplaySizeSlider,
+      viewEffects: [
+        objectTransformationEffect<{ diagonal: number }>({
+          affectedObjects: ['monitor1', 'monitor2'],
+          scale: (selectionInfo) => {
+            const diagonal = selectionInfo.values.diagonal
+            return [diagonal / 24, diagonal / 24, undefined]
+          },
+          translateRelative: (selectionInfo) => {
+            const diagonal = selectionInfo.values.diagonal
+            return [undefined, (diagonal / 24 - 1) / 2, undefined]
+          }
+        })
+      ]
     },
     {
       id: 'DOCK',
